@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login — The Wolf Control Center</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+</head>
+
+<body class="login-page">
+
+    <!-- Background -->
+    <div class="login-background">
+
+        <div class="login-glow glow-one"></div>
+        <div class="login-glow glow-two"></div>
+        <div class="login-grid"></div>
+
+    </div>
+
+
+    <!-- Login Wrapper -->
+    <main class="login-wrapper">
+
+        <!-- Brand -->
+        <div class="login-brand">
+
+            <div class="login-logo">
+                🐺
+            </div>
+
+            <div>
+                <h1>The Wolf</h1>
+
+                <p>
+                    Control Center
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Login Card -->
+        <section class="login-card">
+
+            <div class="login-card-top">
+
+                <span class="security-badge">
+                    <span class="security-dot"></span>
+                    SECURE ADMIN ACCESS
+                </span>
+
+            </div>
+
+
+            <div class="login-heading">
+
+                <h2>
+                    Welcome back
+                </h2>
+
+                <p>
+                    Sign in to manage The Wolf Community.
+                </p>
+
+            </div>
+
+
+            <!-- Login Form -->
+            <form
+                id="loginForm"
+                class="login-form"
+            >
+
+                <!-- Username -->
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            👤
+                        </span>
+
+                        <input
+                            id="username"
+                            name="username"
+                            type="text"
+                            placeholder="Enter your username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <div class="label-row">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <a
+                            href="#"
+                            class="forgot-link"
+                            onclick="return false;"
+                        >
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <div class="input-wrapper">
+
+                        <span class="input-icon">
+                            🔒
+                        </span>
+
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="passwordToggle"
+                            aria-label="Show password"
+                        >
+                            👁️
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Remember -->
+                <div class="login-options">
+
+                    <label class="remember-option">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span class="custom-checkbox"></span>
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- Error -->
+                <div
+                    id="loginError"
+                    class="login-error"
+                >
+                    <span>⚠️</span>
+
+                    <span id="loginErrorText">
+                        Invalid username or password.
+                    </span>
+                </div>
+
+
+                <!-- Login Button -->
+                <button
+                    type="submit"
+                    class="login-button"
+                    id="loginButton"
+                >
+
+                    <span
+                        class="login-button-content"
+                        id="loginButtonContent"
+                    >
+                        <span>
+                            Sign in
+                        </span>
+
+                        <span class="button-arrow">
+                            →
+                        </span>
+                    </span>
+
+                    <span
+                        class="login-loading"
+                        id="loginLoading"
+                    >
+                        <span class="spinner"></span>
+                        Signing in...
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- Divider -->
+            <div class="login-divider">
+
+                <span></span>
+
+                <p>
+                    ADMIN CONTROL CENTER
+                </p>
+
+                <span></span>
+
+            </div>
+
+
+            <!-- Security -->
+            <div class="login-security">
+
+                <div class="security-icon">
+                    🛡️
+                </div>
+
+                <div>
+
+                    <strong>
+                        Protected Area
+                    </strong>
+
+                    <p>
+                        Only authorized Wolf administrators
+                        can access this dashboard.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="login-footer">
+
+            <span>
+                🐺 The Wolf Community
+            </span>
+
+            <span class="footer-separator">
+                •
+            </span>
+
+            <span>
+                Control Center
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script>
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const passwordInput =
+            document.getElementById("password");
+
+        const passwordToggle =
+            document.getElementById("passwordToggle");
+
+        const loginButton =
+            document.getElementById("loginButton");
+
+        const loginButtonContent =
+            document.getElementById(
+                "loginButtonContent"
+            );
+
+        const loginLoading =
+            document.getElementById(
+                "loginLoading"
+            );
+
+        const loginError =
+            document.getElementById(
+                "loginError"
+            );
+
+        const loginErrorText =
+            document.getElementById(
+                "loginErrorText"
+            );
+
+
+        /* ================================
+           PASSWORD VISIBILITY
+        ================================= */
+
+        passwordToggle.addEventListener(
+            "click",
+            () => {
+
+                const isPassword =
+                    passwordInput.type === "password";
+
+                passwordInput.type =
+                    isPassword
+                        ? "text"
+                        : "password";
+
+                passwordToggle.textContent =
+                    isPassword
+                        ? "🙈"
+                        : "👁️";
+
+                passwordToggle.setAttribute(
+                    "aria-label",
+                    isPassword
+                        ? "Hide password"
+                        : "Show password"
+                );
+
+            }
+        );
+
+
+        /* ================================
+           INPUT FOCUS
+        ================================= */
+
+        document
+            .querySelectorAll(
+                ".login-form input"
+            )
+            .forEach(input => {
+
+                input.addEventListener(
+                    "focus",
+                    () => {
+
+                        input
+                            .closest(
+                                ".input-wrapper"
+                            )
+                            ?.classList
+                            .add("focused");
+
+                    }
+                );
+
+
+                input.addEventListener(
+                    "blur",
+                    () => {
+
+                        input
+                            .closest(
+                                ".input-wrapper"
+                            )
+                            ?.classList
+                            .remove("focused");
+
+                    }
+                );
+
+            });
+
+
+        /* ================================
+           LOGIN
+        ================================= */
+
+        loginForm.addEventListener(
+            "submit",
+            async event => {
+
+                event.preventDefault();
+
+
+                const username =
+                    document
+                        .getElementById(
+                            "username"
+                        )
+                        .value
+                        .trim();
+
+                const password =
+                    passwordInput.value;
+
+                const remember =
+                    document
+                        .getElementById(
+                            "rememberMe"
+                        )
+                        .checked;
+
+
+                loginError.classList.remove(
+                    "show"
+                );
+
+
+                if (
+                    !username ||
+                    !password
+                ) {
+
+                    showLoginError(
+                        "Please enter your username and password."
+                    );
+
+                    return;
+                }
+
+
+                loginButton.disabled = true;
+
+                loginButtonContent.style.display =
+                    "none";
+
+                loginLoading.style.display =
+                    "flex";
+
+
+                try {
+
+                    /*
+                     * Dashboard backend login endpoint.
+                     * If your server is not connected yet,
+                     * this will show the error instead of
+                     * falsely logging the user in.
+                     */
+
+                    const response =
+                        await fetch(
+                            "/api/login",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body: JSON.stringify({
+                                    username,
+                                    password,
+                                    remember
+                                })
+                            }
+                        );
+
+
+                    const data =
+                        await response.json()
+                            .catch(
+                                () => ({})
+                            );
+
+
+                    if (
+                        !response.ok ||
+                        !data.success
+                    ) {
+
+                        throw new Error(
+                            data.message ||
+                            "Invalid username or password."
+                        );
+
+                    }
+
+
+                    window.location.href =
+                        "/dashboard";
+
+                } catch (error) {
+
+                    console.error(
+                        "Login error:",
+                        error
+                    );
+
+
+                    showLoginError(
+                        error.message ||
+                        "Unable to sign in. Please try again."
+                    );
+
+
+                    loginButton.disabled =
+                        false;
+
+                    loginButtonContent.style.display =
+                        "flex";
+
+                    loginLoading.style.display =
+                        "none";
+
+                }
+
+            }
+        );
+
+
+        /* ================================
+           ERROR
+        ================================= */
+
+        function showLoginError(message) {
+
+            loginErrorText.textContent =
+                message;
+
+            loginError.classList.add(
+                "show"
+            );
+
+        }
+
+
+        /* ================================
+           ENTER KEY
+        ================================= */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Enter" &&
+                    document.activeElement.tagName !==
+                    "BUTTON"
+                ) {
+
+                    /*
+                     * Browser form handling already
+                     * takes care of the submission.
+                     */
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Wolf Community — Control Center</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">🐺</div>
+
+            <div class="brand-text">
+                <h2>The Wolf</h2>
+                <span>Control Center</span>
+            </div>
+        </div>
+
+        <div class="nav-section">
+            <span class="nav-label">MAIN</span>
+
+            <nav class="nav">
+
+                <a href="#" class="nav-item active" data-page="dashboard">
+                    <span>🏠</span>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="members">
+                    <span>👥</span>
+                    <span class="nav-text">Members</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="tickets">
+                    <span>🎫</span>
+                    <span class="nav-text">Tickets</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="applications">
+                    <span>📋</span>
+                    <span class="nav-text">Applications</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="leave">
+                    <span>🏖️</span>
+                    <span class="nav-text">Staff Leave</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="giveaways">
+                    <span>🎁</span>
+                    <span class="nav-text">Giveaways</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="nav-section">
+
+            <span class="nav-label">MANAGEMENT</span>
+
+            <nav class="nav">
+
+                <a href="#" class="nav-item" data-page="moderation">
+                    <span>🛡️</span>
+                    <span class="nav-text">Moderation</span>
+                </a>
+
+                <a href="#" class="nav-item" data-page="staff">
+                    <span>👮</span>
+                    <span class="nav-text">Staff</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <div class="nav-section">
+
+            <span class="nav-label">SYSTEM</span>
+
+            <nav class="nav">
+
+                <a href="#" class="nav-item" data-page="settings">
+                    <span>⚙️</span>
+                    <span class="nav-text">Settings</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="bot-status">
+
+                <span class="status-dot"></span>
+
+                <div class="bot-status-info">
+
+                    <strong>Wolf Bot</strong>
+
+                    <small id="sidebarStatus">
+                        Connecting...
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="topbar-title">
+
+                <div class="mobile-menu-button" onclick="toggleSidebar()">
+                    ☰
+                </div>
+
+                <div>
+                    <h1 id="pageTitle">
+                        Dashboard
+                    </h1>
+
+                    <p id="pageSubtitle">
+                        Welcome back, Wolf Admin.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="connection">
+
+                    <span class="status-dot"></span>
+
+                    <span id="connectionText">
+                        Connecting...
+                    </span>
+
+                </div>
+
+                <div class="avatar">
+                    W
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= PAGE CONTENT ================= -->
+
+        <div id="pageContent">
+
+            <!-- Dashboard inserted by app.js -->
+
+        </div>
+
+
+        <footer>
+
+            <span>
+                🐺 The Wolf Community
+            </span>
+
+            <span>
+                Control Center
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="/app.js"></script>
+
+</body>
+</html>
